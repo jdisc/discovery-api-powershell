@@ -1,0 +1,30 @@
+Import-Module PSGraphQL 
+
+
+function JDisc-Authenticate {
+    param (
+        [string]$url = "https://localhost/graphql",
+        [string]$user = "Administrator",
+        [Parameter(Mandatory=$true)][string]$password
+     )
+
+
+    $mutation = "
+    mutation {
+      authentication {
+        login(login: `"$user`", password: `"$password`") {
+          status
+          accessToken
+          refreshToken
+          rights
+        }
+      }
+    }"
+    
+    Write-Host "Authenticating with URL $url and user $user" 
+    #Write-Debug "mutation $mutation"
+    $jsonResult = Invoke-GraphQLQuery -Mutation $mutation -Uri $url 
+    return $jsonResult.data.authentication.login.accessToken
+}
+
+Export-ModuleMember -Function JDisc-Authenticate

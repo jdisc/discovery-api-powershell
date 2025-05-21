@@ -37,7 +37,7 @@ param (
     [Parameter(Mandatory=$false)]
     [string]$password,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [string]$certPath,
 
     [Parameter(Mandatory=$false)]
@@ -48,7 +48,7 @@ param (
 )
 
 if (-not $certPath) {
-    Write-Output "Usage: .\Install-Certificate.ps1 -apiUrl <API URL> -username <Username> -certPath <Path to Certificate> -keyPath <Path to Private Key>"
+    Write-Output "Usage: $($MyInvocation.MyCommand.Name) -apiUrl <API URL> -username <Username> -certPath <Path to Certificate> -keyPath <Path to Private Key>"
     exit 1
 }
 

@@ -14,4 +14,4 @@ Pass the username and password and optionally a remote url
 `discover-local.ps1 -url http://server:port/graphql -user %USERNAME% -password 'secret'`
 
 Pass the password using the -password parameter from the command line. If omitted, you will be interativley prompted for the password
-`run-graphql-query.ps1 -apiUrl http://server:port/graphql -username '<user>' -graphQLQueryFileName '<QueryFileName>' -graphQLResponseFileName '<QueryResponseFileName>'` 
+`run-graphql-query.ps1 -apiUrl http://server:port/graphql -username <user> -graphQLQueryFileName <QueryFileName> -graphQLResponseFileName <QueryResponseFileName>` 
